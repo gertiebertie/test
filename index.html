@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Find Your Table</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      text-align: center;
+    }
+    input {
+      padding: 10px;
+      width: 250px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px 15px;
+      font-size: 16px;
+      margin-left: 10px;
+      border-radius: 8px;
+      border: none;
+      background-color: #007BFF;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Find Your Table</h1>
+  <input type="text" id="nameInput" placeholder="Enter your name">
+  <button onclick="findTable()">Search</button>
+  <div id="result"></div>
+
+  <script>
+    // Example guest list
+    const guests = {
+      "Ben Dover": "Table 1",
+      "Peter File": "Table 2",
+      "Amanda Bone": "Table 3",
+      "Gabe Owners": "Table 2",
+      "Mike Hunt": "Table 4"
+    };
+
+    function findTable() {
+      const name = document.getElementById("nameInput").value.trim();
+      const resultDiv = document.getElementById("result");
+
+      if (guests[name]) {
+        resultDiv.innerHTML = `${name}, you are assigned to <strong>${guests[name]}</strong>.`;
+      } else {
+        resultDiv.innerHTML = `Sorry, no table found for "${name}". Please check the spelling.`;
+      }
+    }
+  </script>
+</body>
+</html>
