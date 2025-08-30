@@ -1,7 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.25, maximum-scale=1.25, minimum-scale=1.25, user-scalable=no">
   <title>Find Your Seat</title>
   <style>
     body {
@@ -10,13 +9,13 @@
       font-family: Arial, sans-serif;
       text-align: center;
       margin: 0;
-      padding-top: 30px;
+      padding-top: 20px;
     }
 
     #headerimg img {
       display: block;
       margin: 0 auto;
-      width: 300%;
+      width: 40%;
       height: auto;
       max-width: 500px;
     }
@@ -25,18 +24,18 @@
       display: flex;
       justify-content: center;
       gap: 10px;
-      margin-top: 10px;
+      margin-top: 30px;
       flex-wrap: wrap;
     }
 
     input[type="text"] {
-      padding: 20px;
-      font-size: 1.4em;
+      padding: 14px;
+      font-size: 1.2em;
       border: none;
-      border-radius: 16px;
+      border-radius: 8px;
       background-color: #EFD5D2;
       color: #6D1818;
-      width: 300px;
+      width: 280px;
       max-width: 90%;
     }
 
@@ -44,9 +43,9 @@
       background-color: #CBA5A0;
       color: white;
       border: none;
-      padding: 20px 30px;
-      font-size: 2em;
-      border-radius: 15px;
+      padding: 14px 24px;
+      font-size: 1.2em;
+      border-radius: 8px;
       cursor: pointer;
     }
 
@@ -55,7 +54,7 @@
     }
 
     #result {
-      font-size: 2em;
+      font-size: 1.5em;
       margin-top: 20px;
       font-family: Arial, sans-serif;
       color: #EFE3D0;
@@ -63,27 +62,31 @@
 
     /* 📱 Mobile adjustments */
     @media (max-width: 600px) {
-       body {
-        transform: scale(1.5);
-      }
       #headerimg img {
-        width: 200%;     /* much bigger image on phone */
+        width: 90%;
         max-width: none;
+      }
+
+      .search-container {
+        flex-direction: column;
+        align-items: center;
       }
 
       input[type="text"],
       button {
-        width: 200%;
+        width: 95%;
         font-size: 2em;
+        padding: 18px;
+        margin-top: 12px;
       }
 
       #result {
         font-size: 2em;
+        font-weight: bold;
       }
     }
   </style>
 </head>
-<body>
 
   <!-- Header image -->
   <div id="headerimg">
