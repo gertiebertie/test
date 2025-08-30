@@ -5,19 +5,20 @@
   <title>Find Your Seat</title>
   <style>
     body {
-      background-color: #6D1818; /* updated background */
+      background-color: #6D1818;
       color: #EFE3D0;
       font-family: Arial, sans-serif;
       text-align: center;
       margin: 0;
-      padding-top: 20px; /* space from top of page */
+      padding-top: 20px;
     }
 
     #headerimg img {
       display: block;
       margin: 0 auto;
-      width: 40%;   /* shrink to 40% of page width */
-      height: auto; /* keep proportions */
+      width: 40%;
+      height: auto;
+      max-width: 400px; /* prevent it from getting too big */
     }
 
     .search-container {
@@ -25,24 +26,26 @@
       justify-content: center;
       gap: 10px;
       margin-top: 30px;
+      flex-wrap: wrap; /* allows stacking on small screens */
     }
 
     input[type="text"] {
-      padding: 10px;
-      font-size: 1em;
+      padding: 12px;
+      font-size: 1.2em;
       border: none;
       border-radius: 8px;
       background-color: #EFD5D2;
       color: #6D1818;
-      width: 250px;
+      width: 280px;
+      max-width: 90%; /* makes it shrink properly on phones */
     }
 
     button {
       background-color: #CBA5A0;
       color: white;
       border: none;
-      padding: 10px 20px;
-      font-size: 1em;
+      padding: 12px 24px;
+      font-size: 1.2em;
       border-radius: 8px;
       cursor: pointer;
     }
@@ -56,6 +59,23 @@
       margin-top: 20px;
       font-family: Arial, sans-serif;
       color: #EFE3D0;
+    }
+
+    /* 📱 Mobile adjustments */
+    @media (max-width: 600px) {
+      #headerimg img {
+        width: 70%; /* bigger image on phones */
+      }
+
+      input[type="text"] {
+        font-size: 1em;
+        width: 90%;
+      }
+
+      button {
+        width: 90%;
+        font-size: 1em;
+      }
     }
   </style>
 </head>
@@ -77,10 +97,10 @@
   <script>
     // Example seating data
     const seatingChart = {
-      "Ben Dover": "Table 1",
-      "Peter File": "Table 2",
-      "Gabe Owners": "Table 3",
-      "Amanda Bone": "Table 4"
+      "Alice": "Table 1, Seat 3",
+      "Bob": "Table 2, Seat 5",
+      "Charlie": "Table 3, Seat 1",
+      "Diana": "Table 4, Seat 2"
     };
 
     function findSeat() {
@@ -96,5 +116,4 @@
   </script>
 </body>
 </html>
-
 
