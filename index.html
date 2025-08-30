@@ -1,36 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Find Your Seat</title>
-
-  <div id="headerimg">
-    <img src="Findseat.png"/img>
-    <style>
-      padding-top: 10px;
-      display: block;
-      margin: 0 auto;
-      width: 40%
-      heightL auto;
-      </style>
-  </div>
-</head>
-  
-<body>
-   <style>
+  <style>
     body {
-      background-color: #6D1818;
-      margin: 0; /* remove default body margin */
+      background-color: #6D1818; /* updated background */
       color: #EFE3D0;
       font-family: Arial, sans-serif;
       text-align: center;
-      padding: 50px;
+      margin: 0;
+      padding-top: 20px; /* space from top of page */
     }
-         
+
+    #headerimg img {
+      display: block;
+      margin: 0 auto;
+      width: 40%;   /* shrink to 40% of page width */
+      height: auto; /* keep proportions */
+    }
+
     .search-container {
       display: flex;
       justify-content: center;
       gap: 10px;
-      margin-bottom: 30px;
+      margin-top: 30px;
     }
 
     input[type="text"] {
@@ -39,7 +33,7 @@
       border: none;
       border-radius: 8px;
       background-color: #EFD5D2;
-      color: #57141E;
+      color: #6D1818;
       width: 250px;
     }
 
@@ -60,13 +54,19 @@
     #result {
       font-size: 1.5em;
       margin-top: 20px;
-      font-family: Arial, sans-serif; /* normal sans-serif for output */
+      font-family: Arial, sans-serif;
       color: #EFE3D0;
     }
   </style>
-  
+</head>
 <body>
 
+  <!-- Header image -->
+  <div id="headerimg">
+    <img src="Findseat.png" alt="Find Your Seat">
+  </div>
+
+  <!-- Search bar -->
   <div class="search-container">
     <input type="text" id="nameInput" placeholder="Enter your name...">
     <button onclick="findSeat()">Search</button>
@@ -77,10 +77,10 @@
   <script>
     // Example seating data
     const seatingChart = {
-      "Alice": "Table 1, Seat 3",
-      "Bob": "Table 2, Seat 5",
-      "Charlie": "Table 3, Seat 1",
-      "Diana": "Table 4, Seat 2"
+      "Ben Dover": "Table 1",
+      "Peter File": "Table 2",
+      "Gabe Owners": "Table 3",
+      "Amanda Bone": "Table 4"
     };
 
     function findSeat() {
@@ -96,4 +96,5 @@
   </script>
 </body>
 </html>
+
 
