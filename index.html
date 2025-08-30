@@ -18,7 +18,7 @@
       margin: 0 auto;
       width: 40%;
       height: auto;
-      max-width: 400px; /* prevent it from getting too big */
+      max-width: 500px;
     }
 
     .search-container {
@@ -26,25 +26,25 @@
       justify-content: center;
       gap: 10px;
       margin-top: 30px;
-      flex-wrap: wrap; /* allows stacking on small screens */
+      flex-wrap: wrap;
     }
 
     input[type="text"] {
-      padding: 12px;
+      padding: 14px;
       font-size: 1.2em;
       border: none;
       border-radius: 8px;
       background-color: #EFD5D2;
       color: #6D1818;
       width: 280px;
-      max-width: 90%; /* makes it shrink properly on phones */
+      max-width: 90%;
     }
 
     button {
       background-color: #CBA5A0;
       color: white;
       border: none;
-      padding: 12px 24px;
+      padding: 14px 24px;
       font-size: 1.2em;
       border-radius: 8px;
       cursor: pointer;
@@ -64,17 +64,18 @@
     /* 📱 Mobile adjustments */
     @media (max-width: 600px) {
       #headerimg img {
-        width: 150%; /* bigger image on phones */
+        width: 90%;     /* much bigger image on phone */
+        max-width: none;
       }
 
-      input[type="text"] {
-        font-size: 2em;
-        width: 100%;
-      }
-
+      input[type="text"],
       button {
-        width: 100%;
-        font-size: 2em;
+        width: 90%;
+        font-size: 1.1em;
+      }
+
+      #result {
+        font-size: 1.3em;
       }
     }
   </style>
@@ -116,4 +117,5 @@
   </script>
 </body>
 </html>
+
 
