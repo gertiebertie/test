@@ -1,76 +1,93 @@
-<div style="position: relative; width: 100%; height: 0; padding-top: 37.5000%;
- padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
- border-radius: 8px; will-change: transform;">
-  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-    src="https://www.canva.com/design/DAGxcFrDPPc/EOWl3heEMtfZosRSawFBpg/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-  </iframe>
-</div>
-
-<img src="57141e.pdf" />
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Find Your Table</title>
+  <title>Find Your Seat</title>
   <style>
     body {
+      background-color: #57141E;
+      color: #EFE3D0;
       font-family: Arial, sans-serif;
-      padding: 30px;
       text-align: center;
+      padding: 50px;
     }
-    input {
+
+    h1 {
+      font-family: "Brush Script MT", cursive;
+      font-size: 3em;
+      margin-bottom: 30px;
+      color: #EFE3D0;
+    }
+
+    .search-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    input[type="text"] {
       padding: 10px;
-      width: 250px;
-      font-size: 16px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-    }
-    button {
-      padding: 10px 15px;
-      font-size: 16px;
-      margin-left: 10px;
-      border-radius: 8px;
+      font-size: 1em;
       border: none;
-      background-color: #007BFF;
+      border-radius: 8px;
+      background-color: #EFD5D2;
+      color: #57141E;
+      width: 250px;
+    }
+
+    button {
+      background-color: #CBA5A0;
       color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      border-radius: 8px;
       cursor: pointer;
     }
+
     button:hover {
-      background-color: #0056b3;
+      background-color: #b8908a;
     }
+
     #result {
+      font-size: 1.5em;
       margin-top: 20px;
-      font-size: 18px;
-      font-weight: bold;
+      font-family: Arial, sans-serif; /* normal sans-serif for output */
+      color: #EFE3D0;
     }
   </style>
 </head>
 <body>
-  <h1>Find Your Table</h1>
-  <input type="text" id="nameInput" placeholder="Enter your name">
-  <button onclick="findTable()">Search</button>
+  <h1>Find Your Seat</h1>
+
+  <div class="search-container">
+    <input type="text" id="nameInput" placeholder="Enter your name...">
+    <button onclick="findSeat()">Search</button>
+  </div>
+
   <div id="result"></div>
 
   <script>
-    // Example guest list
-    const guests = {
-      "Ben Dover": "Table 1",
-      "Peter File": "Table 2",
-      "Amanda Bone": "Table 3",
-      "Gabe Owners": "Table 2",
-      "Mike Hunt": "Table 4"
+    // Example seating data
+    const seatingChart = {
+      "Alice": "Table 1, Seat 3",
+      "Bob": "Table 2, Seat 5",
+      "Charlie": "Table 3, Seat 1",
+      "Diana": "Table 4, Seat 2"
     };
 
-    function findTable() {
+    function findSeat() {
       const name = document.getElementById("nameInput").value.trim();
       const resultDiv = document.getElementById("result");
 
-      if (guests[name]) {
-        resultDiv.innerHTML = `${name}, you are assigned to <strong>${guests[name]}</strong>.`;
+      if (seatingChart[name]) {
+        resultDiv.textContent = `${name}, you are seated at ${seatingChart[name]}.`;
       } else {
-        resultDiv.innerHTML = `Sorry, no table found for "${name}". Please check the spelling.`;
+        resultDiv.textContent = "Sorry, name not found.";
       }
     }
   </script>
 </body>
 </html>
+
