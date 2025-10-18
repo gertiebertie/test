@@ -26,7 +26,13 @@
 
     h1 {
       font-size: 2em;
+      margin-bottom: 0.5em;
+    }
+
+    .instruction {
+      font-size: 1em;
       margin-bottom: 1em;
+      color: #EFE3D0;
     }
 
     .search-bar {
@@ -62,7 +68,7 @@
     }
 
     #result {
-      font-size: 1.2em;
+      font-size: 1.1em;
       margin-top: 1em;
     }
 
@@ -74,50 +80,48 @@
       .search-bar input, .search-bar button {
         padding: 0.6em;
       }
+
+      .instruction {
+        font-size: 0.9em;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Find Your Seat</h1>
+    <h1>Find you seat! 🎉</h1>
+    <p class="instruction">Type in your first and last name</p>
+
     <div class="search-bar">
       <input type="text" id="nameInput" placeholder="Enter your name..." />
       <button onclick="searchName()">Search</button>
     </div>
+
     <div id="result"></div>
   </div>
 
   <script>
-    // 🔒 Hardcoded name -> seat mapping
+    // 🧾 Hardcoded name-to-seat mapping (lowercase keys)
     const seatMap = {
-      "Jenny": "Row A3",
-      "bob": "Row B1",
-      "charlie": "Row C2",
-      "diana": "Row D4",
-      "emma": "Row E1"
-      // ➕ Add more here as needed
+      "alice smith": "Row A3",
+      "bob johnson": "Row B1",
+      "charlie lee": "Row C2",
+      "diana chen": "Row D4",
+      "emma davis": "Row E1",
+      "john doe": "Row F5"
+      // ➕ Add more names like:
+      // "first last": "Seat info"
     };
 
     function searchName() {
       const input = document.getElementById("nameInput").value.trim().toLowerCase();
       const resultDiv = document.getElementById("result");
+      resultDiv.innerHTML = ""; // Clear previous results
 
       if (input === "") {
         resultDiv.textContent = "Please enter a name.";
         return;
       }
 
-      if (seatMap[input]) {
-        resultDiv.textContent = `${capitalize(input)} is sitting in ${seatMap[input]}`;
-      } else {
-        resultDiv.textContent = "Name not found.";
-      }
-    }
-
-    function capitalize(name) {
-      return name.charAt(0).toUpperCase() + name.slice(1);
-    }
-  </script>
-</body>
-</html>
-
+      // 🔍 Find all matches that include the search text
+      co
