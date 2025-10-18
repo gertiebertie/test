@@ -1,125 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.5, maximum-scale=1.5, minimum-scale=1.5, user-scalable=no">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Find Your Seat</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
   <style>
     body {
-      background-color: #6D1818;
-      color: #EFE3D0;
-      font-family: Arial, sans-serif;
-      text-align: center;
       margin: 0;
-      padding-top: 20px;
+      padding: 0;
+      background-color: #791010;
+      font-family: 'Playfair Display', serif;
+      color: #EFE3D0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
     }
 
-    #headerimg img {
-      display: block;
-      margin: 0 auto;
-      width: 40%;
-      height: auto;
+    .container {
+      width: 90%;
       max-width: 500px;
     }
 
-    .search-container {
+    h1 {
+      font-size: 2em;
+      margin-bottom: 1em;
+    }
+
+    .search-bar {
       display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 20px;
-      flex-wrap: wrap;
+      border: 2px solid #EFE3D0;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-bottom: 1em;
     }
 
-    input[type="text"] {
-      padding: 14px;
-      font-size: 1.2em;
+    .search-bar input {
+      flex: 1;
+      padding: 0.8em;
+      font-size: 1em;
       border: none;
-      border-radius: 8px;
-      background-color: #EFD5D2;
-      color: #6D1818;
-      width: 280px;
-      max-width: 90%;
+      outline: none;
+      background-color: #EFE3D0;
+      color: #791010;
     }
 
-    button {
-      background-color: #CBA5A0;
-      color: white;
+    .search-bar button {
+      padding: 0.8em 1em;
+      background-color: #EFE3D0;
+      color: #791010;
       border: none;
-      padding: 14px 24px;
-      font-size: 1.2em;
-      border-radius: 8px;
       cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
     }
 
-    button:hover {
-      background-color: #b8908a;
+    .search-bar button:hover {
+      background-color: #e0d4b5;
     }
 
     #result {
-      font-size: 1.5em;
-      margin-top: 20px;
-      font-family: Arial, sans-serif;
-      color: #EFE3D0;
+      font-size: 1.2em;
+      margin-top: 1em;
     }
 
-    /* 📱 Mobile adjustments */
     @media (max-width: 600px) {
-      #headerimg img {
-        width: 90%;
-        max-width: none;
+      h1 {
+        font-size: 1.5em;
       }
 
-      .search-container {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      input[type="text"],
-      button {
-        width: 95%;
-        font-size: 2em;
-        padding: 18px;
-        margin-top: 12px;
-      }
-
-      #result {
-        font-size: 2em;
-        font-weight: bold;
+      .search-bar input, .search-bar button {
+        padding: 0.6em;
       }
     }
   </style>
 </head>
-
-  <!-- Header image -->
-  <div id="headerimg">
-    <img src="findseat2.png" alt="Find Your Seat">
+<body>
+  <div class="container">
+    <h1>Find Where You're Sitting</h1>
+    <div class="search-bar">
+      <input type="text" id="nameInput" placeholder="Enter your name..." />
+      <button onclick="searchName()">Search</button>
+    </div>
+    <div id="result"></div>
   </div>
-
-  <!-- Search bar -->
-  <div class="search-container">
-    <input type="text" id="nameInput" placeholder="Enter your name...">
-    <button onclick="findSeat()">Search</button>
-  </div>
-
-  <div id="result"></div>
 
   <script>
-    // Example seating data
-    const seatingChart = {
-      "Ben Dover": "Table 1",
-      "Peter File": "Table 2",
-      "Amanda Bone": "Table 3",
-      "Gabe Owners": "Table 4"
+    // 🔒 Hardcoded name -> seat mapping
+    const seatMap = {
+      "alice": "Row A3",
+      "bob": "Row B1",
+      "charlie": "Row C2",
+      "diana": "Row D4",
+      "emma": "Row E1"
+      // ➕ Add more here as needed
     };
 
-    function findSeat() {
-      const name = document.getElementById("nameInput").value.trim();
+    function searchName() {
+      const input = document.getElementById("nameInput").value.trim().toLowerCase();
       const resultDiv = document.getElementById("result");
 
-      if (seatingChart[name]) {
-        resultDiv.textContent = `${name}, you are seated at ${seatingChart[name]}.`;
-      } else {
-        resultDiv.textContent = "Sorry, name not found.";
+      if (input === "") {
+        resultDiv.textContent = "Please enter a name.";
+        return;
       }
+
+      if (seatMap[input]) {
+        resultDiv.textContent = `${capitalize(input)} is sitting in ${seatMap[input]}`;
+      } else {
+        resultDiv.textContent = "Name not found.";
+      }
+    }
+
+    function capitalize(name) {
+      return name.charAt(0).toUpperCase() + name.slice(1);
     }
   </script>
 </body>
 </html>
+
